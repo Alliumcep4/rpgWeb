@@ -1,6 +1,7 @@
-package com.builder.classes;
+package com.builder.model;
 
 public class Skill {
+    private String name; 
     private String description; 
     private int cooldown; 
     private int power;
@@ -8,11 +9,20 @@ public class Skill {
     public Skill() {
     }
 
-    public Skill(String description, int cooldown, int power) {
+    public Skill(String name, String description, int cooldown, int power) {
+        this.name = name;
         this.description = description;
         this.cooldown = cooldown;
         this.power = power;
-    } 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;

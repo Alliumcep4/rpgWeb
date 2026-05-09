@@ -1,4 +1,7 @@
-package com.builder.classes;
+package com.builder.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,10 +18,14 @@ public class Character {
     private int speed; 
     private String style;
     
+    private Weapon weapon; 
+    private List <Skill> skills = new ArrayList<>(); 
+
     public Character() {
     }
 
-    public Character(String id, String name, int level, int hp, int attack, int defense, int speed, String style) {
+    public Character(String name, int level, int hp, int attack, int defense, int speed, String style, Weapon weapon,
+            List<Skill> skills) {
         this.name = name;
         this.level = level;
         this.hp = hp;
@@ -26,7 +33,9 @@ public class Character {
         this.defense = defense;
         this.speed = speed;
         this.style = style;
-    } 
+        this.weapon = weapon;
+        this.skills = skills;
+    }
 
     public String getId() {
         return id;
@@ -90,6 +99,22 @@ public class Character {
 
     public void setStyle(String style) {
         this.style = style;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
     
     
